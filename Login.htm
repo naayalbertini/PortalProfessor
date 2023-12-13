@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Área do Professor</title>
+    <link rel="stylesheet" href="./Login_files/styles.css">
+    <link rel="stylesheet" href="./Login_files/font-awesome.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container px-5">
+            <a class="navbar-brand" href="">
+                <img src="img/Apresentação_Verde_e_Bege_de_Aula_Infantil_sobre_Ecologia-removebg-preview.png" alt="Logo" height="45" class="d-inline-block align-text-top">
+                <i class="fa fa-graduation-cap"></i> Área do Professor
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+            <div class="col-lg-12">
+                <h1 class="font-weight-light">Login</h1>
+                <p></p>
+                <form role="form" action="https://www.api.sistema2.com.br/professor/Login.ashx" method="post">
+                    <input type="hidden" name="codEscola" value="157"> <!-- Adicionado campo oculto com valor 157 -->
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="pLogin" placeholder="E-mail" name="pLogin" required="required">
+                        <label for="pLogin">Login</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="pSenha" placeholder="Senha" name="pSenha" required="required">
+                        <label for="pSenha">Senha</label>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleDataList" class="form-label"></label>
+                        <a href="https://api.whatsapp.com/send?phone=5571999183320&text=Ol%C3%A1!%20Estou%20tendo%20problemas%20com%20o%20login%20no%20portal%20do%20professor.%20Poderia%20me%20ajudar." style="float: right;" onclick="validaLogin('S');">Recuperar senha</a>
+                        <input class="form-control" id="pRecuperarSenha" name="pRecuperarSenha" type="hidden" value="N">
+                    </div>
+                    <div class="mb-3">
+                        <a href="#" class="btn btn-lg btn-success" onclick="validaLogin('N');" style="width: 100%;">Entrar</a>
+                        <button type="submit" id="btnSubmit" class="hidden d-none"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="row gx-4 gx-lg-5">
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+            </div>
+        </div>
+        <div class="col-md-4 mb-5">
+            <div class="card h-100">
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-5 bg-dark">
+        <div class="container px-4 px-lg-5">
+            <p class="m-0 text-center text-white">
+
+            </p>
+        </div>
+    </footer>
+
+    <script src="./Login_files/bootstrap.bundle.min.js.baixados"></script>
+    <script src="./Login_files/scripts.js.baixados"></script>
+    <script src="./Login_files/jquery-3.2.1.js.baixados" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script>
+        function validaLogin(eMailSenha) {
+            if (document.getElementById("pLogin").value == "") {
+                $("#btnSubmit").trigger("click");
+                return false;
+            }
+
+            if (eMailSenha == "N" && document.getElementById("pSenha").value == "") {
+                $("#btnSubmit").trigger("click");
+                return false;
+            }
+
+            document.getElementById("pRecuperarSenha").value = eMailSenha;
+            document.forms[0].submit();
+        }
+    </script>
+
+</body>
+
+</html>
